@@ -38,7 +38,9 @@ const App = () => {
 
     [languageSlice.languages]
   
+
   );
+  
   console.log(data);
   return (
     <div id="main-page">
@@ -71,6 +73,7 @@ const App = () => {
         <div className="middle">
           <textarea disabled value={translateSlice.answer} />
         </div>
+      
 
         {/* alt kısım  */}
         <div className="çevirbutonu">

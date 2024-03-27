@@ -31,11 +31,11 @@ export const translatetext = createAsyncThunk(
 
     const options = {
       method: "POST",
-      url: "https://text-translator2.p.rapidapi.com/translate",
+      url: 'https://text-translator2.p.rapidapi.com/translate',
       headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "e464f7215emsh13c1782223246d6p19f372jsncbec4fc5dc6c",
-        "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': '00c01c81c8msh99707fadaabd207p15a588jsna8338100acdd',
+        'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
       },
       data: params,
     };

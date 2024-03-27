@@ -13,6 +13,7 @@ const languageSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getLanguages.pending, (state) => {
       state.isLoading = true;
+      
     });
     builder.addCase(getLanguages.rejected, (state) => {
       state.isLoading = false;

@@ -4,7 +4,7 @@ import { translatetext } from "../actions/translateActions";
 const initialState = {
   isloading: false,
   iserror: false,
-  answer: '',
+  answer: "",
 };
 const translateSlice = createSlice({
   name: "translate",
