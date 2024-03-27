@@ -44,6 +44,6 @@ export const translatetext = createAsyncThunk(
     const res = await axios.request(options);
 
     // aksiyonun  payloadını belirleme
-    return res.data.data.translatetext;
+    return res.data.data.translatedText;
   }
 );

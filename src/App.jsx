@@ -4,6 +4,7 @@ import { getLanguages, translatetext } from "./redux/actions/translateActions";
 //import store from "./redux/store";
 import Select from "react-select";
 import { useState } from "react";
+import { setansver } from "./redux/slices/translateSlice";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -37,11 +38,20 @@ const App = () => {
       })),
 
     [languageSlice.languages]
-  
-
   );
-  
-  console.log(data);
+
+  const handleswap = () => {
+    // selecleri değiş
+    settargetlang(sourcelang);
+    setsourcelang(targetlang);
+
+    // cevap textaresında veriyi diğer textaresına aktar
+    settext(translateSlice.answer);
+    dispatch(setansver(text));
+
+    //  soru textaresındakı veriyi cevap textareasına aktar.
+  };
+
   return (
     <div id="main-page">
       <div className="container">
@@ -54,32 +64,43 @@ const App = () => {
             onChange={setsourcelang}
             className="select"
             options={data}
+            isLoading={languageSlice.isLoading}
+            isDisabled={languageSlice.isLoading}
           />
 
-          <button>Değiş</button>
+          <button onClick={handleswap}>Değiş</button>
           <Select
             value={targetlang}
             onChange={(e) => settargetlang(e)}
             className="select"
             options={data}
+            isLoading={languageSlice.isLoading}
+            isDisabled={languageSlice.isLoading}
           />
         </div>
 
         {/*  Orta kısım */}
 
         <div className="middle">
-          <textarea onChange={(e) => settext(e.target.value)} />
+          <textarea value={text} onChange={(e) => settext(e.target.value)} />
         </div>
         <div className="middle">
           <textarea disabled value={translateSlice.answer} />
+          {translateSlice.isLoading && (
+            <div className="typewriter">
+              <div className="slide">
+                <i></i>
+              </div>
+              <div className="paper"></div>
+              <div className="keyboard"></div>
+            </div>
+          )}
         </div>
-      
 
         {/* alt kısım  */}
         <div className="çevirbutonu">
           <button
             onClick={() =>
-              
               dispatch(translatetext({ text, sourcelang, targetlang }))
             }
             className="btn"

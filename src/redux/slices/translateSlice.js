@@ -23,6 +23,16 @@ const translateSlice = createSlice({
       state.answer = action.payload;
     });
   },
+
+  reducers: {
+    setansver: (state,action) => {
+
+
+      state.answer = action.payload
+    }
+  },
 });
 
+
+export const {setansver} = translateSlice.actions
 export default translateSlice.reducer;
